@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>function.html</title>
+<meta charset="UTF-8">
+<meta name="author" content="Xu Da">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="main.css">
+<script>
+	function myAlert() {
+		window.alert("Hello");
+	}
+				      
+	function myAlert2(aString) { 
+		window.alert("Alerting: " + aString);
+		return 34;
+	}
+
+	function inequal(s1, s2) {
+		return s1 + " != " + s2;
+	}
+</script>
+</head>
+
+<body>
+
+<div class = "head">
+    <h1><b> function.html </b></h1>
+</div>
+
+<div class = "block para">
+	<script>
+		document.write("<p>Mr Pudding says: <b>Hi there</b></p>");
+		myAlert();
+		result = 2 * myAlert2("everyone");
+		document.write("<p> Doubled return value was: " + result + "</p>");
+		document.write("<p>" + inequal("this", "that") + "</p>");
+	</script>
+</div>
+
+<div class = "block foot">
+    <div class = "head">
+        <p><a href = "index.html"> Return </a></p>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Xu Da">
+<title> Questionaire </title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="/main.css">
+</head>
+<body>
+
+<div class = "head">
+<h1><b> Welcome to the Questionaire </b></h1>
+</div>
+
+<div class = "block">
+
+<form
+    name = "survey"
+    id = "survey"
+    action = "/django/polls/register/"
+    method = "post">
+
+<br />
+<br />
+<br />
+
+{% csrf_token %}
+<table border = "0" align = "center">
+  <tr>
+    <td > Name: </td>
+    <td >
+      <input type = "text"  name = "name" id = "name" size = "20" maxlength = "100"/>
+    </td>
+  </tr>
+
+  <tr>
+    <td > Age: </td>
+    <td >
+      <input type = "number"  name = "age" id = "age" size = "30" />
+    </td>
+  </tr>
+
+  <tr>
+    <td> Gender: </td>
+    <td >
+      <input type = "radio" name = "gender" id = "gender" value = "male" checked = "checked"/> Male
+      <input type = "radio" name = "gender" id = "gender" value = "female" /> Female
+    </td>
+  </tr>
+
+  <tr>
+    <td >Email: </td>
+    <td >
+      <input type = "email"  name = "email" id = "email" size = "20" maxlength = "100"/>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan = "2" >
+      <input type = "submit"  value = "Submit" />
+	  <a href = "/django/polls/query/"><input type = "button" value = "Query" /></a>
+    </td>
+  </tr>
+
+</table>
+
+<br />
+<br />
+<br />
+
+</form>
+
+</div>
+
+<div class = "block foot">
+    <div class = "head">
+        <p><a href = "/index.html"> Return </a></p>
+    </div>
+</div>
+
+</body>
+</html>
+

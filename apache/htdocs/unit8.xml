@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="unit8.xsl"?>
+
+<cookbook
+  xmlns:xsi =  "http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation = "http://162.105.146.180:8100
+                        unit8.xsd">
+  <recipe>
+    <name>Rhubarb and Custard</name>
+    <picture>custard.jpg</picture>
+    <ingredient>
+      <name>Milk</name>
+      <amount>15</amount>
+      <unit>ml</unit>
+    </ingredient>
+    <ingredient>
+      <name>Rhubarb</name>
+      <amount>700</amount>
+      <unit>g</unit>
+    </ingredient>
+    <ingredient>
+      <name>Custard Powder</name>
+      <amount>8</amount>
+      <unit>tbs</unit>
+    </ingredient>
+    <preparation>Mix together and put in oven proof dish</preparation>
+    <cooking>
+      heat in moderate oven for 40 min.
+    </cooking>
+  </recipe>
+  <recipe>
+    <name>Basic Muffins</name>
+    <picture>muffin.jpg</picture>
+    <ingredient>
+      <name>Egg</name>
+      <amount>1</amount>
+      <unit></unit>
+    </ingredient>
+    <ingredient>
+      <name>Milk</name>
+      <amount>120</amount>
+      <unit>ml</unit>
+    </ingredient>
+    <ingredient>
+      <name>Vegetable oil</name>
+      <amount>4</amount>
+      <unit>teaspoons</unit>
+    </ingredient>
+    <ingredient>
+      <name>Plain flour</name>
+      <amount>200</amount>
+      <unit>g</unit>
+    </ingredient>
+    <ingredient>
+      <name>Caster sugar</name>
+      <amount>100</amount>
+      <unit>g</unit>
+    </ingredient>
+    <ingredient>
+      <name>Baking powder</name>
+      <amount>2</amount>
+      <unit>teaspoons</unit>
+    </ingredient>
+    <ingredient>
+      <name>Salt</name>
+      <amount>1/2</amount>
+      <unit>teaspoon</unit>
+    </ingredient>
+    <preparation>Preheat oven to 200 C / Gas 6. Grease muffin tin or use bun paper cases.</preparation>
+    <preparation>Beat egg with a fork. Then stir in milk and oil.</preparation>
+    <preparation>Sift flour into a large bowl. Add sugar, baking powder and salt.</preparation>
+    <preparation>Add egg mixture to flour and stir until flour is moistened.</preparation>
+    <cooking>Fill muffin cups 2/3 full.</cooking>
+    <cooking>Bake 20 to 25 minutes until golden brown.</cooking>
+  </recipe>
+</cookbook>

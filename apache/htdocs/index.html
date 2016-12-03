@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> WST Homework </title>
+<meta charset="UTF-8">
+<meta name="author" content="Xu Da">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="main.css">
+<script type = "text/javascript" src = "jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    // Implement ReturnToTop Button
+    $(function(){
+        var $backToTopEle = $('.toTop'), $backToTopFun = function() {
+            var st = $(document).scrollTop(), winh = $(window).height();
+            (st > 200) ? $backToTopEle.fadeIn('slow') : $backToTopEle.fadeOut('slow');
+            //IE6
+            if (!window.XMLHttpRequest) {
+                $backToTopEle.css("top", st + winh - 166);
+            }
+        };
+        $('.toTop').click(function() {
+            $("html, body").animate({ scrollTop: 0 }, 1200);
+        })
+        $backToTopEle.hide();
+        $backToTopFun();
+        $(window).bind("scroll", $backToTopFun);
+    })
+</script>
+<style type="text/css">
+    .toTop {
+        position: fixed;
+        bottom: 113px;
+        z-index: 20;
+        left: 90%;
+        width: 38px;
+        height: 38px;
+        background-color: #ddd;
+        border-radius:3px;
+        cursor: pointer;
+    }
+    .toTop>.stick {
+        position: absolute;
+        width: 8px;
+        height: 14px;
+        display: block;
+        left: 15px;
+        top: 15px;
+        border-radius: 1px;
+        background-color: #aaa
+    }
+    .toTop>.arrow {
+        position:absolute;
+        left:10px;
+        top:-1px;
+        width:0;
+        height:0;
+        border: 9px solid rgba(126, 27, 27, 0);
+        border-bottom-color:#aaa
+    }
+</style>
+</head>
+<body>
+
+<div class = "head">
+<h1><b> WST Homework </b></h1>
+</div>
+
+<div class = "block">
+    <img src = "ink.jpg" alt = "Background Image" style = "width: 100%;"/>
+<div class = "head">
+	<table border = "0" align = "center" style = "font-size: x-large">
+		<tr>
+			<td><a href = "#1">Unit 1</a></td>	
+			<td><a href = "#2">Unit 2</a></td>	
+			<td><a href = "#3">Unit 3</a></td>	
+			<td><a href = "#4">Unit 4</a></td>	
+			<td><a href = "#5">Unit 5</a></td>	
+			<td><a href = "#6">Unit 6</a></td>	
+			<td><a href = "#7">Unit 7</a></td>	
+			<td><a href = "#8">Unit 8</a></td>	
+			<td><a href = "#9">Unit 9&10</a></td>	
+		</tr>
+	</table>
+</div>
+</div>
+
+<div class = "block" id = "9">
+    <div class = "head">
+        <h2><b> Unit 9&10 : Application Server and Programming Frameworks Introduction</b></h2>
+    </div>
+	<div class = "para">
+		<p><a href = "/django/polls/main/">Click to show answer</a></p>
+		<p> I choose Python Django Framework. </p>
+		<p> First of all, I have to install Django without <code>sudo</code>. I find <code>pip install --user</code> extremely useful and succeed after a lot of effort.</p>
+		<p> Second, in order to deploy Django in Apache, I manually build mod_wsgi.so and load this module in httpd.conf. Thus when Apache detects <code>/django</code> in URL, Django will be called to handle it. Since the built-in web server in Django is too weak to be deployed in production environment, I am not able to use Reverse Proxy or Load Balance.</p>
+		<p> At last, the most important part is coding. Django is a MVC framework, but the names are different:</p>
+		<ul>
+			<li> Model:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;models.py           </li>
+			<li> View:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;templates/xxx.html  </li>
+			<li> Controller: urls.py & views.py  </li>
+		</ul>
+		<p> Here is what every file does: </p>
+		<ul>
+			<li> <b>models.py:</b> define a class <code> Guest </code> with four attributes <code>(name, age, gender, email)</code> and interact with database automatically.</li>
+			<li> <b>urls.py:</b>   associate URL with functions in views.py. For example, when the URL <code>/django/polls/query/</code> comes, the function <code>query</code> in views.py is called.</li>
+			<li> <b>views.py:</b>  control the database and send results to templates. For example, the function <code>query</code> fetches all <code>Guest</code> entries from the database and send them to templates/query.html. </li>
+			<li> <strong>templates:</strong> define how data is presented, act as View in MVC. </li>
+		</ul>
+		<p><img src = "django.png" alt = "django" style = "width: 600px"/></p>
+	</div>
+</div>
+
+
+<div class = "block" id = "8">
+    <div class = "head">
+        <h2><b> Unit 8 : XML, an overview</b></h2>
+    </div>
+    <div class = "para">
+		<h3>Homework</h3>
+		<ol>
+			<li>Develop an XML file to represent a book of recipes.</li>
+			<li>Create an XML schema with appropriate data for a recipe book.</li>
+			<li>Format your XML using an XSLT stylesheet.</li>
+			<li>Include links to your .xsl, .xsd and .xml files on your homework page.</li>
+			<li>Write a short article if you wish to draw the markers attention to something you are pleased with!</li>
+		</ol>
+		<ul>
+			<li><a href = "unit8.xml">cook.xml</a></li> 
+			<li><a href = "unit8.xsl">cook.xsl</a></li> 
+			<li><a href = "unit8.xsd">cook.xsd</a></li>
+			<li>Used <code>&lt;xsl:attribute&gt;</code> to insert images.</li>
+			<li>Used <code>&lt;xsl:choose&gt;</code> and <code>&lt;xsl:when&gt;</code> to insert horizontal lines between recipes.</li>
+		</ul>
+		<br />
+	</div>
+</div>
+
+<div class = "block" id = "7">
+    <div class = "head">
+        <h2><b> Unit 7 : Applets and Servlets</b></h2>
+    </div>
+	<div class = "para">
+	<h3>Homework 1</h3>
+	<p>Research by loading these files on as many different browser types and versions as you can find (e.g. IE, Opera, Safari and Mozilla family). Snapshot what happens and include these images on your web site.</p>
+	<p><a href = "unit7_1.html">Click to show answer</a></p>
+	<h3>Homework 2</h3>
+	<p>Experiment with applet graphics (AWT and Swing). Create a simple applet to draw a red square and a green circle.</p>
+	<p><a href = "unit7_2.html">Click to show answer</a></p>
+	<h3>Homework 3</h3>
+	<p>Add to your applet to draw a third shape, determined by parameters passed from the HTML file that determine the shape and colour to draw. </p>
+	<form action = "unit7_3.php" method = "POST">
+		<p>Shape: 
+		<input type = "radio" name = "shape" value = "0" checked /> Square
+		<input type = "radio" name = "shape" value = "1" /> Circle
+		</p>
+		<p>Color:
+		<input type = "radio" name = "color" value = "0" checked /> Red
+		<input type = "radio" name = "color" value = "1" /> Green
+		</p>
+		<input type = "submit" value = "Submit" />
+	</form>
+
+	<h3>Homework 4</h3>
+	<p>Write a brief essay outlining the differences between AWT and Swing graphics.</p>
+	<ul>
+		<li>AWT(Abstract Window Toolkit) is a Java interface to native system GUI code present in your OS. It will not work the same on every system, although it tries. </li>
+		<li>Swing is a more-or-less pure-Java GUI. It uses AWT to create an operating system window and then paints pictures of buttons, labels, text, checkboxes, etc., into that window and responds to all of your mouse-clicks, key entries, etc., deciding for itself what to do instead of letting the operating system handle it. Thus Swing is 100% portable and is the same across platforms (although it is skinnable and has a "pluggable look and feel" that can make it look more or less like how the native windows and widgets would look). </li>
+	</ul>
+
+	<h3>Homework 5</h3>
+	<p>For additional credit: use threads to implement some sort of animation ... try moving the shapes around.</p>
+	<p><a href = "unit7_5.html">Click to show answer</a></p>
+
+
+	<br />
+	</div>
+</div>
+
+<div class = "block" id = "6">
+    <div class = "head">
+        <h2><b> Unit 6 : JavaScript - is not Java</b></h2>
+    </div>
+    <div class = "para">
+		<h3>Homework 0 </h3>
+		<ol>
+			<li>What are JavaScript browser sniffers?</li>
+			<p>JavaScript browser sniffers are techniques written in Javascript in order to determine the web browser a visitor is using, and to serve browser-appropriate content to the visitor.</p>
+
+			<li>Why are they so commonly used in javascripts?</li>
+			<p>Because Javascript relies heavily on DOM, whose interpretation varies in different browsers. To circumvent incompatibilities between browsers and ensure consistent display of content, browser sniffers are used. </p>
+		</ol>
+		<h3>Homework 1 </h3>
+		<ol>
+		<li>Write a few lines of well-formatted html using JavaScript - your home town & country , your favourite TV show, and your favourite food!</li>
+		</ol>
+		<p><a href = "unit6_1.html">hiThere.html</a></p>
+
+		<h3>Homework 2 </h3>
+		<ol>
+		<li>Output double whatever value is returned from function myAlert2.</li>
+		<li>Write another function which takes 2 strings and returns them with  != between them (e.g. this != that), then output this new string.</li>
+		</ol>
+		<p><a href = "unit6_2.html">function.html</a></p>
+
+		<h3>Homework 3 </h3>
+		<ol>
+		<li>Get a URL from the user using a popup then redirect page using location.</li>
+		<li>Putting the mouse over the the Lime link displays a message in the status bar (bottom of window) - this is broken for the Lemon - how is it broken? Fix it!</li>
+		</ol>
+		<p><a href = "unit6_3.html">popups.html</a></p>
+
+		<h3>Homework 4 </h3>
+		<ol>
+		<li>Declare a global variable to hold a list (array)  of holidays.</li>
+		<li>Edit makeholiday so that it adds new holidays to the array. </li>
+		<li>Make more holidays using makeHoliday. </li>
+		<li>Write and call a function to loop over and display all the holidays in the array.</li>
+		</ol>
+		<p><a href = "unit6_4.html">objects.html</a></p>
+
+		<h3>Homework 5 </h3>
+		<ol>
+		<li>Use a regular expression to check age is numbers only (HINT: look for non-numbers) and is sensible value (5 &lt; age &lt; 150 )</li>
+		<li>Write a CGI/PHP program to process the form  and submit if all is OK .</li>
+		</ol>
+		<p><a href = "unit6_5.html">wizardForm.html</a></p>
+
+    <br />
+    </div>
+</div>
+
+
+<div class = "block" id = "5">
+    <div class = "head">
+        <h2><b> Unit 5 : Java - An easy week</b></h2>
+    </div>
+    <div class = "para">
+
+    <p>Here is what you must achieve:</p>
+    <ul>
+    <li>Edit the <code>Sample.java</code> program so that the label (<code>jLabel1</code>)
+    shows your group number (e.g. <code>99</code>).</li>
+    <li>Edit the <code>RunSample.java</code> program so that it runs with your
+    group identity (e.g. <code>y2006g99</code>).</li>
+    <li>Run the program and take a snapshot of the window it produces so that your
+    group number can be clearly seen</li>
+    <li>Take a snapshot of the command window showing a prompt with your name.</li>
+    <li>Put the two images on your web site as homework for week 5.</li>
+    <li>You need to replace the <code>BufferedReader</code> with a
+    <code>Scanner</code> and link your code on your web page</li>
+    </ul>
+
+    <p><a href = "unit5.html">Click to show answer</a></p>
+    <br />
+    </div>
+</div>
+
+<div class = "block" id = "4">
+    <div class = "head">
+        <h2><b> Unit 4 : Access Database through Web</b></h2>
+    </div>
+    <div class = "para">
+
+    <h3>Homework 1</h3> Answer the three questions asked in the course.
+    <ol>
+        <li>
+            <p>Give the SELECT command to answer the question : <b>Who will go to the party held in Peking University?</b></p>
+            <pre> <code>
+    SELECT Guest_Name
+    FROM guest, party, guest_party
+    WHERE party.Party_Num = guest_party.Party_Num
+        AND guest_party.Guest_ID = guest.Guest_ID
+        AND Place='Peking University'
+            </code> </pre>
+
+        </li>
+        <li>
+            <p>Figure out a way to obtain the column labels returned by <b>mysql_fetch_array.</b></p>
+
+            <pre> <code>
+    $row = mysql_fetch_array($result);
+    while ($element = each($row)) {
+        $element = each($row);
+        print $element['key'];
+    }
+            </code> </pre>
+        </li>
+        <li>
+            <p>Tell the difference between a CGI program and a PHP program
+            executed by a Web Server.<p>
+            <ul>
+            <li>CGI(Common Gateway Interface) is an interface between web server and local applications, which can be releaized through various languages including PHP.</li>
+            <li>PHP(Hypertext Preprocessor) is a programming language, largely applied in server side to create dynamic webpages deal with databases. CGI is one of its application.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Homework 2</h3> <p>Set up PHP for your Apache and test it.</p>
+    <a href = "unit4_2.php">See PHPInfo</a>
+
+    <h3>Homework 3 </h3>
+    <p>Transform the guest book that you implemented in week 3
+    into a Database version.</p>
+    <a href = "unit4_3_main.php">Click to show answer</a>
+
+    <h3>Homework 4</h3>
+    <p>For homework3, only one Table is created. This
+    time, create the other two tables, party table and party_guest table(
+	you can choose different table names). Functions realized include:</p>
+	<p>1) Guest can find out what parties will be given and when and where. </p>
+	<p>2) In additon to Guest name, Age, Gender, .... User can choose what parties he or she wants to go.</p>
+	<p>3) Separate PHP programs are provided for the organizer to input information about the parties will be given.</p>
+    <a href = "unit4_3_main.php">See the link in Homework 3</a>
+	
+    <h3>Homework 5</h3>
+	<p>Realize more query functions.</p>
+	<p>4) Guests can find out what parties will every guest attend.</p>
+	<p>5) Organizers can find out who will come to their parties and delete useless party items.</p>
+	<p>	<a href = "unit4_3_main.php">See the link in Homework 3</a></p>
+
+    <br />
+
+    </div>
+</div>
+
+<div class = "block" id = "3">
+    <div class = "head">
+        <h2><b> Unit 3 : Basic protocol II</b></h2>
+    </div>
+    <div class = "para">
+
+    <h3>Homework 1 </h3>
+    <h5><a href = "unit3_1.html">Click to show answer</a></h5>
+        <blockquote>
+        Implement a page layout like:<br />
+        <img src="layout.jpg" alt = "layout" />
+        <br />
+        Use CSS and DIV.
+        <ol>
+        <li>The left column and the right column must be of the same width, which could be fixed.</li>
+        <li>The right column always floats to the right. </li>
+        <li>The left column and the right column must be of the same height no matter what do they
+        contain.</li>
+        <li>Inline style, Internal style sheet and External style sheet must all be used in
+        the homework. </li>
+        </ol>
+
+        Your performance of designing the layout will be evaluated in Firefox 3.5.
+        However, you are encouraged to test your layout in as many browsers as possible.
+        You will receive a bonus if you design layout that has the same appearance in IE6, IE7+, Opera, Safari, etc.
+        and mention this effort in your homework. Remember Maxthon, Sogou and Tencent Traveler
+        are not considered as individual browsers, for they are only shell of IE.
+        Also, try to pass both <a href="http://validator.w3.org/">the W3C Markup Validation</a>
+        and <a href="http://jigsaw.w3.org/css-validator/">the W3C CSS Validation</a>, then place
+        "valid" icon(s) on your web pages. The icons can be found on the page showing you passed validation.
+
+        </blockquote>
+    <h3>Homework 2</h3>
+    <h5><a href = "unit3_2.html">Click to show answer</a></h5>
+        <blockquote>
+            Study the &quot;Survey&quot; example in the text book carefully. <a href="conelec.html">Try it first</a>.
+        <br />
+            Implement a little &quot;Questionare&quot; using Perl.
+          Information to be collected include:
+            <ul><li>Name.</li><li>Age.</li><li>Gender.</li><li>E_mail address.</li></ul>
+          <p>In addition to the Submit button, a Query button is provided for the user
+            to see all data items have been collected. User should also be able to delete
+            selected Items. </p>
+          <p>Tips:
+          <ul>
+          <li>Three CGI program are needed, one to collect data items, one to
+          list items, the other to delete selected items.</li><li>To delete items, for convenience, a check
+          box could be provide to each data item being listed. After user click "delete", all checked items are deleted.</li>
+          <li>Error check for the input data is not required.</li>
+         <li>To prevent simultaneous accesses to a single file, "flock" function is used. please refer to the Survey
+         example in the text book.</li>
+          <li>In order to be run, the CGI program file should has a file mode of 711, which says it can be executed by any user.</li>
+          <li>Put the CGI program in the directory of &quot;cgi-bin&quot; under you Server
+            root Directory.</li>
+          <li>The file which saves the collected data should be created first and should be writable for other users. A file mode 666 is needed.</li>
+          <li>The error.log file in the directory of &quot;logs&quot; will help you to
+            debug your CGI program in case of error.</li>
+            </ul>
+            <p>
+                You are encouraged to improve this questionaire in some way. For example,
+                you could use AJAX to update the information without refreshing the page,
+                write three versions of this questionaire in Perl, C CGI and Shell CGI,
+                or make pages produced by CGI pass W3C validations.
+                Any efforts made should be listed in your pages as they deserve a reward.
+            </p>
+        </blockquote>
+    </div>
+</div>
+
+<div class = "block" id = "2">
+    <div class = "head">
+        <h2><b> Unit 2 : Basic protocal I</b></h2>
+    </div>
+    <div class = "para">
+    <p>Create a HTML pages including :</p>
+    <ul>
+    <li>The homepage of your website, clearly indicating the location of your homework. You will also be asked to place links to all your future homeworks here.</li>
+    <li>A set of pages comprising the following elements: paragraphs, line breaks, headings, images, hypertext links, hypertext links that target within the same page, an ordered list, a table with rowspan and colspan attributes specified, a frameset or a kind of layout which divides the screen into two parts, and an HTML comment.</li>
+    <li>One photo, which is linked to your personal website. You can put the photo either on your homepage or on the above-mentioned set of pages.</li>
+    </ul>
+    <p><a href = "unit2.html">Click to show answer </a></p>
+    <p><a href = "https://validator.w3.org/">HTML validation</a> <strong>PASSED</strong></p>
+    <br />
+    </div>
+</div>
+
+<div class = "block" id = "1">
+    <div class = "head">
+        <h2><b> Unit 1 : The overview and fundamentals</b></h2>
+    </div>
+
+    <div class = "para">
+    <h3>Homework1:</h3><p> For the three categories of web software technology
+      we've just defined, you are asked to find out which category so-called "Netscape
+      plug-in" technology belongs to. Please describe the basic idea of the technology,
+      and give your reasoning on its position in the technology categories.
+    </p>
+    <h3>Homework2: </h3><p>In a normal intercommunication between Web
+      browser and Web Server, Web Server closes the network communication right
+      after it sends back the document requested by the browser. Think about this
+      <b>statusless</b> character of World Wide Web. Give some good points and bad points of it. Can a web server know exactly how many browsers are reading its document?
+    </p>
+    <h3>Homework3: </h3><p>Use some Web search engine to search keywords regarding your interest (even your own name to find out how famous you are in this Web World). Recommended search engines are <a href="http://www.baidu.com/">http://www.baidu.com/</a>
+    and <a href="http://www.google.com">http://www.google.com/</a>
+    </p>
+    <p> <a href = "unit1.html">Click to show answer</a></p>
+    <br />
+    </div>
+
+</div>
+
+<div class = "block foot">
+    <div class = "head">
+        <p>Designed for <a href = "http://net.pku.edu.cn/~zt/wst/"> Web Software Technology 2016 </a></p>
+        <p>Coded by Xu Da</p>
+        <div style = "display: none">Phone : printf "%d\n" 0x46144b542</div>
+        <p><a href = "https://en.wikipedia.org/wiki/Creative_Commons_license"> <img src = "CC-BY-SA_icon.svg" alt = "CC-BY-SA_icon" /> </a> </p>
+    </div>
+</div>
+
+<div class='toTop' style="opacity: 1;" title="Return to Top">
+    <div class="arrow"></div>
+    <div class="stick"></div>
+</div>
+
+</body>
+</html>

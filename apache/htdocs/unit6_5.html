@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Xu Da">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="main.css">
+<script type = "text/javascript" src = "jquery-3.1.1.min.js"></script>
+   <script language="javascript">
+
+   var word1 = "my word"; // a global variable
+
+   function checkSubmit() {
+
+     var q = document.quiz;
+     var qc = q.chat;
+
+     window.alert("Checking submit ..." + document.quiz.watch[0].checked);
+
+
+     for ( var i=0; i<q.holiday.options.length; i++)
+     {
+       if (q.holiday.options[i].selected)
+       {
+         qc.value += "Selected: " + q.holiday.options[i].value + "\n";
+       }
+     }
+
+     if ( noValue(q.Personal_FirstName.value) )
+     {
+       qc.value += "What no name? - I shall call you Belinda\n";
+       q.Personal_FirstName.value = "Belinda";
+     }
+
+     result = checkText(q, qc) && checkAge(q.Personal_Age.value, qc);
+
+	 if (!result)
+		window.alert("Please fill in the form correctly!");
+
+     return result;
+   } // checkSubmit
+
+   function myAlert2(aString) {
+     window.alert("Alerting" +aString);
+   }
+
+   function noValue(val)  {
+     // javascript uses the regular expressions from perl
+     // Sebesta 4.12.1
+     if (val.search(/\w/) == -1) {
+       return true;
+     }
+     return false;
+   } //noValue
+
+   function chechAge(age, qc) {
+     if (age.search(/^\d+$/) >= 0) {
+     var n = parseInt(age);
+     if (n > 5 && n < 150)
+           return true;
+     }
+     qc.value += "Incorrect Personal_Age\n";
+     return false;
+   }
+
+   function checkText(q, qc) {
+     //Warn if text boxes are empty (any alphanumeric is OK)
+     //qc.value += "checkText\n";
+     var result = true;
+     for ( var i =0 ; i < q.length; i++) {
+       if (noValue(q.elements[i].value)) {
+        qc.value += "No value: "+ q.elements[i].name + "\n";
+        result = false;
+       }
+     }
+     return result;
+
+   }// checkText
+   
+   $(document).ready(function(){
+	   $("#sub").click(function(){
+			$.ajax({
+ 				type: "post",
+				url: "/cgi-bin/dump.pl",
+			    data: $("#quiz").serialize(),
+				success: function(data){
+					$("#result").html(data);
+			    }
+			});   
+	   });
+   });
+
+   </script>
+<TITLE>Form 2 Wizard</TITLE>
+</HEAD>
+<BODY>
+
+
+<div class = "head">
+    <H1><b>Form 2 Wizard</b></H1>
+</div>
+
+<div class = "block">
+  <div class = "para">
+  <p>Requirements :</p>
+  <ol>
+  <li>Add checkAge()</li>
+  <li>Modify checkSubmit()</li>
+  <li>Provide submit options using <b>jQuery Ajax</b></li>
+  </ol>
+
+  </div>
+</div>
+
+
+<div class = "block">
+<br />
+<form action="/cgi-bin/dump.pl" onSubmit="return checkSubmit();"  method="post" name="quiz" id = "quiz">
+<OL>
+<LI><P>Please identify and describe yourself:</P>
+<TABLE>
+<TR>
+<TD ALIGN="right"><EM>First Name</EM></TD>
+<TD><INPUT TYPE=TEXT NAME="Personal_FirstName" SIZE=20></TD>
+</TR><TR>
+<TD ALIGN="right"><EM>Last Name</EM></TD>
+<TD><INPUT TYPE=TEXT NAME="Personal_LastName" SIZE=20></TD>
+</TR><TR>
+<TD ALIGN="right"><EM>Age</EM></TD>
+<TD><INPUT TYPE=TEXT NAME="Personal_Age" SIZE=20 MAXLENGTH=3></TD>
+</TR><TR>
+<TD ALIGN="right"><EM>Sex</EM></TD>
+<TD><INPUT TYPE=RADIO NAME="Personal_Sex" VALUE="Male" CHECKED>Male
+<INPUT TYPE=RADIO NAME="Personal_Sex" VALUE="Female">Female</TD>
+</TR><TR>
+<TD ALIGN="right"><EM>ID Number</EM></TD>
+<TD><INPUT TYPE=TEXT NAME="Personal_IDNumber" SIZE=20 MAXLENGTH=16></TD>
+</TR>
+</TABLE>
+
+<LI><P>Choose one of the following options:</P>
+<P><INPUT TYPE=RADIO NAME="watch" VALUE="Dunno" CHECKED> I don't know?!
+<BR><INPUT TYPE=RADIO NAME="watch" VALUE="Radio"> Radio
+<BR><INPUT TYPE=RADIO NAME="watch" VALUE="TV"> TV
+<BR><INPUT TYPE=RADIO NAME="watch" VALUE="Film"> Film
+<BR><BR>
+</P>
+
+<LI><P>Choose one of the following options:</P>
+<P><SELECT NAME="holiday">
+  <OPTION value="Greece" SELECTED>Greece <OPTION value="Italy">Italy
+  <OPTION value="France">France <OPTION value="Spain">Spain
+</SELECT>
+<BR>
+</P>
+<LI><P>How would you rate your knowledge of JavaScript?</P>
+<P>
+  <INPUT TYPE=RADIO NAME="knowledge" VALUE="1" onClick="alert('Time for some SERIOUS learning');">1
+  <INPUT TYPE=RADIO NAME="knowledge" VALUE="2" onClick="alert('I hope you\'re yearning for some learning');">2
+  <INPUT TYPE=RADIO NAME="knowledge" VALUE="3" CHECKED>3
+  <INPUT TYPE=RADIO NAME="knowledge" VALUE="4">4
+  <INPUT TYPE=RADIO NAME="knowledge" VALUE="5">5
+  <BR></P>
+</OL>
+<p />
+<div class = "para">
+	<p><textarea name="chat" rows=5 cols=40></textarea></p>
+	<p><INPUT TYPE=button VALUE="Don't Push Me" name="push" onClick="alert('HOW RUDE!!!!\nI asked you NOT to push me');">
+	<INPUT TYPE=SUBMIT VALUE="Submit Form">
+	<INPUT TYPE=RESET VALUE="Reset Form" onClick="return confirm('Are you sure?');">
+	</p>
+	<INPUT TYPE="button" VALUE="Submit in Another Way" id="sub">
+
+</div>
+</FORM>
+<br />
+</div>
+
+<div class = "block">
+	<div class = "para">
+	<span id = "result"></span>
+	</div>
+</div>
+
+<div class = "block foot">
+    <div class = "head">
+        <p><a href = "index.html"> Return </a></p>
+    </div>
+</div>
+
+</BODY>
+</HTML>

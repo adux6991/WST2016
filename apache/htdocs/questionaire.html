@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!-- questionaire.html
+     A document to collect information such as name, age, gender and email.
+     -->
+
+<html lang="en">
+<head>
+<title> Questionaire </title>
+<meta charset="UTF-8">
+<meta name="author" content="Xu Da">
+</head>
+
+<body>
+<form
+    action = "/cgi-bin/submit.pl"
+    method = "post">
+<h1> Welcome to the Questionaire </h1>
+<br />
+
+<p> Your Name: <input type = "text"  name = "name"  /> </p>
+<p> Your Age: <input type = "number"  name = "age" min = "0" max = "200" /> </p>
+
+<p> Your Gender:
+<select name = "gender">
+<option value = "male"> Male </option>
+<option value = "female"> Female </option>
+</select>
+</p>
+
+<p> Your E-mail: <input type = "email"  name = "email" /> </p>
+
+<p>
+<input type = "submit"  value = "Submit" />
+<input type = "button" value = "Query" onclick= "window.open('/cgi-bin/query.pl')">
+</p>
+
+</form>
+
+<hr />
+
+</body>
+</html>
+

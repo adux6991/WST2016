@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>popups.html</title>
+<meta charset="UTF-8">
+<meta name="author" content="Xu Da">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="main.css">
+<script>
+	function inputURL() {
+		url = prompt("Enter URL:", "http://net.pku.edu.cn/~zt/wst/");
+		window.location = url;
+	}
+</script>
+</head>
+
+<body>
+
+<div class = "head">
+    <h1><b> popups.html </b></h1>
+</div>
+
+<div class = "block para">
+	<p>
+	Mr Pudding says: Do you want to go to 
+	<a href="#" onMouseOver="self.status='Off to the Lemon'; return true;" onMouseOut="self.status='';" >the Lemon</a>?
+	<br />or would you prefer the  
+	<a href="#" onMouseOver="self.status='Ah.... I see that you prefer the lime'; return true;" onMouseOut="self.status='';">the Lime</a>?
+	</p>
+	<hr />
+	<p> Most newer browsers prevent you from setting the text in the status bar from JavaScript.</p>
+	<button onclick= "inputURL();"> Input URL </button>
+	<br />
+	<br />
+</div>
+
+<div class = "block foot">
+    <div class = "head">
+        <p><a href = "index.html"> Return </a></p>
+    </div>
+</div>
+
+
+</body>
+</html>

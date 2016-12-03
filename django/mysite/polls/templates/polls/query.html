@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Xu Da">
+<title> Questionaire </title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="/main.css">
+</head>
+
+<div class = "head">
+    <h1><b> Guests </b></h1>
+</div>
+
+<div class = "block">
+
+<form method="post" action="/django/polls/delete/">
+
+<br /><br /><br />
+{% csrf_token %}
+<table border = "0" align = "center">
+
+<tr>
+<th></th>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+<th>Email</th>
+</tr>
+
+{% if guestList %}
+	{% for guest in guestList %}
+	<tr>
+		<td><label><input type = "checkbox" name = "{{ guest.id }}" value = "on" /></label></td>
+		<td>{{ guest.name }}</td>
+		<td>{{ guest.age }}</td>
+		<td>{{ guest.gender }}</td>
+		<td>{{ guest.email }}</td>
+	</tr>
+	{% endfor %}
+{% endif %}
+
+<!--
+      echo '<tr><td><label><input type="checkbox" name="'.$row["Guest_ID"].'" value="on" /></label></td>';
+      echo '<td>'.$row["Guest_Name"].'</td>';
+      echo '<td>'.$row["Age"].'</td>';
+      echo '<td>'.$row["Gender"].'</td>';
+	  echo '<td>'.$row["Email"].'</td>';
+	  echo '<td>';
+		  -->
+<tr>
+<td colspan="5"><input type="submit" value="Delete" /></td>
+</tr>
+
+</table>
+
+<br /><br /><br />
+
+</form>
+
+</div>
+
+<div class = "block foot">
+    <div class = "head">
+        <p><a href = "/django/polls/main/"> Return </a></p>
+    </div>
+</div>
+
+</body>
+</html>
