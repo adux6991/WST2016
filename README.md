@@ -16,9 +16,9 @@
 
 After a while you will see a linux kernel configuration interface. You should modify the following items:
 
-* Change "Platform type ­> CPU selection" from `Rocket` to `Generic RISC­V`
-* Change "Kernel type ­> Kernel code model" from `64­bit kernel` to `32­bit kernel`
-* Change "General setup ­> Cross­compiler tool prefix" from `riscv64­unknown­linux­gnu­` to `riscv32­unknown­linux­gnu­`
+*   Change "Platform type ­> CPU selection" from `Rocket` to `Generic RISC­V`
+*   Change "Kernel type ­> Kernel code model" from `64­bit kernel` to `32­bit kernel`
+*   Change "General setup ­> Cross­compiler tool prefix" from `riscv64­unknown­linux­gnu­` to `riscv32­unknown­linux­gnu­`
   
 Then exit and save.
 
